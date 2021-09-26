@@ -16,11 +16,13 @@ import (
 
 func main() {
 	logrus.SetFormatter(new(logrus.JSONFormatter))
+
 	if err := initConfig(); err != nil {
 		logrus.Fatalf("error initializing configs: %s", err.Error())
 	}
+
 	if err := godotenv.Load(); err != nil {
-		logrus.Fatalf("error loadinf env variables: %s", err.Error())
+		logrus.Fatalf("error loading env variables: %s", err.Error())
 	}
 
 	db, err := repository.NewPostgresDB(repository.Config{

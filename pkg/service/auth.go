@@ -19,7 +19,6 @@ func NewAuthService(repo repository.Autorization) *AuthService {
 
 func (s *AuthService) CreateUser(user todo.User) (int, error) {
 	user.Password = generatePasswordHash(user.Password)
-
 	return s.repo.CreateUser(user)
 }
 
