@@ -1,8 +1,24 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+	"todo-app"
+
+	"github.com/gin-gonic/gin"
+)
 
 func (h *Handler) createList(c *gin.Context) {
+	userId, ok := c.Get(userCtx)
+	if !ok {
+		newErrorResponse(c, http.StatusInternalServerError, "user id not found")
+		return
+	}
+
+	var input todo.TodoList
+	if err := c.BindJSON(&input); err != nil {
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
 
 }
 

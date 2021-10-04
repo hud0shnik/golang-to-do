@@ -6,7 +6,7 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-type Autorization interface {
+type Authorization interface {
 	CreateUser(user todo.User) (int, error)
 	GetUser(username, password string) (todo.User, error)
 }
@@ -18,13 +18,13 @@ type TodoItem interface {
 }
 
 type Repository struct {
-	Autorization
+	Authorization
 	TodoList
 	TodoItem
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
 	return &Repository{
-		Autorization: NewAuthPostgres(db),
+		Authorization: NewAuthPostgres(db),
 	}
 }
