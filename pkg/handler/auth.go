@@ -26,7 +26,7 @@ func (h *Handler) signUp(c *gin.Context) {
 		return
 	}
 
-	// Запись в ответ статускода 200 и id пользователя
+	// Запись в ответ статус кода 200 и id пользователя
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"id": id,
 	})
@@ -58,7 +58,7 @@ func (h *Handler) signIn(c *gin.Context) {
 		return
 	}
 
-	// Запись в ответ статускода 200 и токена
+	// Запись в ответ статус кода 200 и токена
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"token": token,
 	})
