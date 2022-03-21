@@ -10,6 +10,7 @@ type errorResponse struct {
 	Message string `json:"message"`
 }
 
+// Структура статуса приложения
 type statusResponse struct {
 	Status string `json:"status"`
 }
