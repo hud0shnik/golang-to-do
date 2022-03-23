@@ -6,11 +6,13 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+// Интерфейс авторизации
 type Authorization interface {
 	CreateUser(user todo.User) (int, error)
 	GetUser(username, password string) (todo.User, error)
 }
 
+// Интерфейс списка
 type TodoList interface {
 	Create(userId int, list todo.TodoList) (int, error)
 	GetAll(userId int) ([]todo.TodoList, error)
@@ -19,6 +21,7 @@ type TodoList interface {
 	Update(userId, listId int, input todo.UpdateListInput) error
 }
 
+// Интерфейс пункта списка
 type TodoItem interface {
 	Create(listId int, item todo.TodoItem) (int, error)
 	GetAll(userId, listId int) ([]todo.TodoItem, error)
@@ -27,12 +30,14 @@ type TodoItem interface {
 	Update(userId, itemId int, input todo.UpdateItemInput) error
 }
 
+// Структура со всеми интерфейсами
 type Repository struct {
 	Authorization
 	TodoList
 	TodoItem
 }
 
+// Конструктор
 func NewRepository(db *sqlx.DB) *Repository {
 	return &Repository{
 		Authorization: NewAuthPostgres(db),
