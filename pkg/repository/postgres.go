@@ -41,5 +41,6 @@ func NewPostgresDB(cfg Config) (*sqlx.DB, error) {
 		return nil, err
 	}
 
+	// Возвращает БД и nil
 	return db, nil
 }

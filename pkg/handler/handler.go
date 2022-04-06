@@ -48,7 +48,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		}
 	}
 
-	// Группа эндпоинтов для работы с задачами списка
+	// Группа эндпоинтов для работы с пунктами списка
 	items := api.Group("items")
 	{
 		items.GET("/:id", h.getItemById)
