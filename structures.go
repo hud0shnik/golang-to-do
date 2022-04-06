@@ -1,4 +1,4 @@
-// Файл со структурами, которые используются во всём приложении
+// Файл со структурами и функциями, которые используются во всём приложении
 // Находится в корне проекта для удобства
 
 package todo
@@ -37,29 +37,39 @@ type ListsItem struct {
 	ItemId int
 }
 
+// Структура ввода при обновлении списка
 type UpdateListInput struct {
 	Title       *string `json:"title"`
 	Description *string `json:"description"`
 }
 
+// Проверака при обновлении списка
 func (i UpdateListInput) Validate() error {
+
+	// Если оба значения пустые, возвращает ошибку
 	if i.Title == nil && i.Description == nil {
 		return errors.New("update structure has no values")
 	}
 
+	// Возвращает nil
 	return nil
 }
 
+// Структура ввода при обновлении пункта
 type UpdateItemInput struct {
 	Title       *string `json:"title"`
 	Description *string `json:"description"`
 	Done        *bool   `json:"done"`
 }
 
+// Проверака при обновлении пункта
 func (i UpdateItemInput) Validate() error {
+
+	// Если оба значения пустые, возвращает ошибку
 	if i.Title == nil && i.Description == nil && i.Done == nil {
 		return errors.New("update structure has no values")
 	}
 
+	// Возвращает nil
 	return nil
 }
