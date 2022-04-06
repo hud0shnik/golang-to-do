@@ -75,6 +75,7 @@ func (s *AuthService) GenerateToken(username, password string) (string, error) {
 		user.Id,
 	})
 
+	// Возвращает токен и ошибку
 	return token.SignedString([]byte(signingKey))
 }
 
