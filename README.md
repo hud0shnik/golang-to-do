@@ -34,5 +34,5 @@ GET /api/lists/777 - Получить список с id 777
 PUT /api/lists/777 - Обновить список с id 777
 ```
 ``` Java
-PUT /api/lists/777 - Удалить список с id 777
+DELETE /api/lists/777 - Удалить список с id 777
 ```
