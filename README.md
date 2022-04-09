@@ -11,3 +11,6 @@
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="Postgresql" width="40" height="40"/></a>
 <a href="https://jwt.io/" target="_blank">
 <img src="https://img.icons8.com/color/48/000000/java-web-token.png" alt="JWT" width="40" height="40"/></a>
+
+<h3 align="left">🌌 Роуты:</h3>
+Роуты API можно посмотреть <a href="routes.md" targert="_blank">здесь</a>
