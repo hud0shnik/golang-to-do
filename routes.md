@@ -5,7 +5,7 @@
 POST /auth/sign-in - Залогиниться
 ```
 ``` Java
-POST /auth/sign-up - Зарегистрироваться
+POST /auth/register - Зарегистрироваться
 ```
 ``` Java
 POST /api/lists/ - Создать список
