@@ -51,7 +51,7 @@ func main() {
 
 	// Слой работы с БД
 	repos := repository.NewRepository(db)
-	// Слой бизнесс логики
+	// Слой бизнес логики
 	services := service.NewService(repos)
 	// Слой работы с http
 	handlers := handler.NewHandler(services)
@@ -62,14 +62,14 @@ func main() {
 	// Запуск сервера в горутине
 	go func() {
 		if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
-			logrus.Fatalf("error occured while running http server: %s", err.Error())
+			logrus.Fatalf("error occurred while running http server: %s", err.Error())
 		}
 	}()
 
 	// Вывод информации о запуске приложения
 	logrus.Print("App started")
 
-	// Канал для полуения сигнала о закрытии приложения
+	// Канал для получения сигнала о закрытии приложения
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
 
@@ -81,12 +81,12 @@ func main() {
 
 	// Остановка сервера
 	if err := srv.Shutdown(context.Background()); err != nil {
-		logrus.Errorf("error occured on server shutting down")
+		logrus.Errorf("error occurred on server shutting down")
 	}
 
 	// Закрытие всех соединений с БД
 	if err := db.Close(); err != nil {
-		logrus.Errorf("error occured on db connection close")
+		logrus.Errorf("error occurred on db connection close")
 	}
 }
 
