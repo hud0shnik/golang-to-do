@@ -13,7 +13,7 @@ import (
 
 const (
 
-	// Константа, которую приложнение добавляет при хэшировании
+	// Константа, которую приложение добавляет при хешировании
 	salt = "lhkljGE65E&^$JHGEfgiouero23hg3hj4j"
 
 	// Константа, которую приложение добавляет при генерации JWT токенов
@@ -107,15 +107,15 @@ func (s *AuthService) ParseToken(accessToken string) (int, error) {
 	return claims.UserId, nil
 }
 
-// Функция хэширования пароля
+// Функция хеширования пароля
 func generatePasswordHash(password string) string {
 
-	// Инициализация структуры для хэширования
+	// Инициализация структуры для хеширования
 	hash := sha1.New()
 
-	// Хэширование пароля
+	// Хеширование пароля
 	hash.Write([]byte(password))
 
-	// Возвращает строку с хэшом
+	// Возвращает строку с хешом
 	return fmt.Sprintf("%x", hash.Sum([]byte(salt)))
 }

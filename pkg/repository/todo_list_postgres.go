@@ -50,7 +50,7 @@ func (r *TodoListPostgres) Create(userId int, list todo.TodoList) (int, error) {
 		return 0, err
 	}
 
-	// Приминяет изменения к БД и возвращает id списка
+	// Применяет изменения к БД и возвращает id списка
 	return id, tx.Commit()
 }
 

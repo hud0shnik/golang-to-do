@@ -47,7 +47,7 @@ func (h *Handler) createItem(c *gin.Context) {
 // Хендлер для эндпоинта вывода всех пунктов списка
 func (h *Handler) getAllItems(c *gin.Context) {
 
-	// Получение адйди пользователя из контекста
+	// Получение айди пользователя из контекста
 	userId, err := getUserId(c)
 	if err != nil {
 		return
@@ -74,7 +74,7 @@ func (h *Handler) getAllItems(c *gin.Context) {
 // Хендлер для эндпоинта вывода пункта списка по его id
 func (h *Handler) getItemById(c *gin.Context) {
 
-	// Получение айди пользвателя из контекста
+	// Получение айди пользователя из контекста
 	userId, err := getUserId(c)
 	if err != nil {
 		return
@@ -114,7 +114,7 @@ func (h *Handler) updateItem(c *gin.Context) {
 		return
 	}
 
-	// Получение новых данных для обновлнения
+	// Получение новых данных для обновления
 	var input todo.UpdateItemInput
 	if err := c.BindJSON(&input); err != nil {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())

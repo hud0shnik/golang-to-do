@@ -51,7 +51,7 @@ func (r *TodoItemPostgres) Create(listId int, item todo.TodoItem) (int, error) {
 		return 0, err
 	}
 
-	// Приминяет изменения к БД и возвращает id пункта
+	// Применяет изменения к БД и возвращает id пункта
 	return itemId, tx.Commit()
 }
 
