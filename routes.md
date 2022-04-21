@@ -22,3 +22,9 @@ PUT /api/lists/777 - Обновить список с id 777
 ``` Java
 DELETE /api/lists/777 - Удалить список с id 777
 ```
+``` Java
+POST /api/lists/777/items - Создать задачу в списке с id 777
+```
+``` Java
+GET /api/lists/777/items - Получить все задачи списка с id 777
+```
