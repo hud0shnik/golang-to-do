@@ -8,10 +8,10 @@ POST /auth/sign-in - Залогиниться
 POST /auth/register - Зарегистрироваться
 ```
 ``` Java
-POST /api/lists/ - Создать список
+POST /api/lists - Создать список
 ```
 ``` Java
-GET /api/lists/ - Получить все списки
+GET /api/lists - Получить все списки
 ```
 ``` Java
 GET /api/lists/777 - Получить список с id 777
