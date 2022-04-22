@@ -28,3 +28,12 @@ POST /api/lists/777/items - Создать задачу в списке с id 77
 ``` Java
 GET /api/lists/777/items - Получить все задачи списка с id 777
 ```
+``` Java
+GET /api/items/777 - Получить задачу с id 777
+```
+``` Java
+PUT /api/items/777 - Обновить задачу с id 777
+```
+``` Java
+DELETE /api/items/777 - Удалить задачу с id 777
+```
