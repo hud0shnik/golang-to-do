@@ -17,6 +17,13 @@ import (
 	"github.com/spf13/viper"
 )
 
+// Функция инициализации сонфигурационного файла
+func initConfig() error {
+	viper.AddConfigPath("configs")
+	viper.SetConfigName("config")
+	return viper.ReadInConfig()
+}
+
 func main() {
 
 	// Задаёт для логгера формат JSON
@@ -46,8 +53,6 @@ func main() {
 	if err != nil {
 		logrus.Fatalf("failed to initialize db: %s", err.Error())
 	}
-
-	// Зависимости
 
 	// Слой работы с БД
 	repos := repository.NewRepository(db)
@@ -88,11 +93,5 @@ func main() {
 	if err := db.Close(); err != nil {
 		logrus.Errorf("error occurred on db connection close")
 	}
-}
 
-// Функция инициализации сонфигурационного файла
-func initConfig() error {
-	viper.AddConfigPath("configs")
-	viper.SetConfigName("config")
-	return viper.ReadInConfig()
 }
